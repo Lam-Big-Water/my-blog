@@ -18,6 +18,11 @@ title: 懒加载
 
 ![img-lazy-loading](https://user-images.githubusercontent.com/106876072/194594813-93c1b99c-75f9-40c0-bd4a-077643c7b52a.png)
 
+## 封装
+
+![lazy-loading-hooks](https://user-images.githubusercontent.com/106876072/194768795-eb92c5b0-2dbf-4891-8d2b-7b9f8fe09542.png)
+
+
 
 # 二.路由懒加载
 
