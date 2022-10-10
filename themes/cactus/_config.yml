@@ -15,9 +15,9 @@ direction: ltr
 # languages/*.yml
 nav:
   home: /
-  about: /about/
+  about: https://react-portfolio-v1.vercel.app/
   articles: /archives/
-  projects: http://github.com/probberechts
+  projects: https://react-portfolio-v1.vercel.app/project
 
 
 # Links to your social media accounts.
@@ -26,10 +26,10 @@ nav:
 # only 'mail' is an exception.
 social_links:
   github: https://github.com/Lam-Big-Water
-  twitter: /
-  facebook: /
-  linkedin: /
-  mail: xlin67948@gmail.com
+  # twitter: /
+  # facebook: /
+  # linkedin: /
+  # mail: xlin67948@gmail.com
 
 # Customize the overview with displaying a tagcloud on the index page.
 # Options: https://hexo.io/docs/helpers.html#tagcloud
