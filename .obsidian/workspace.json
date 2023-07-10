@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "26982e51d06f2484",
+        "id": "63a1da47c044ee15",
         "type": "tabs",
         "children": [
           {
-            "id": "4c4bb93afb6c6230",
+            "id": "fc3e415f17b1533e",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "source/_posts/The_Road_To_React.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -65,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "0749ddecdc6ec13a",
@@ -81,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "source/_posts/The_Road_To_React.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "source/_posts/The_Road_To_React.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +125,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "source/_posts/The_Road_To_React.md"
+              }
             }
           }
         ]
@@ -138,7 +147,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "84906f7b81d3b24d",
+  "active": "fc3e415f17b1533e",
   "lastOpenFiles": [
     "Untitled 2.canvas",
     "Untitled 1.canvas",
