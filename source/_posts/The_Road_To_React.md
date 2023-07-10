@@ -1,5 +1,5 @@
 ---
-title: The_Road_To_React
+title: TheRoadToReact
 ---
 # Hello-React
 
