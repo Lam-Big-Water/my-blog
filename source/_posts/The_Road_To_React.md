@@ -4,7 +4,7 @@ title: The Road To React
 # Hello-React
 
 **In this first part of this learning experience, we'll cover the fundamentals of React, with which we'll create our first React project. Later we'll explore new use cases for React by implementing real features like client and server-side searching, remote data fetching, and advanced state management the same as developing an actual web application. By the end, you will have a fully running React application that interacts with real-world data.**
-```
+```text
 在学习体验的第一部分中，我们将介绍 React 的基础知识，并用它创建我们的第一个 React 项目。 之后我们将通过实现客户端和服务器端搜索、远程数据获取和高级状态管理等实际功能来探索 React 的新用例，就像开发实际的 Web 应用程序一样。 最后，您将拥有一个完全运行的 React 应用程序，可以与现实世界的数据进行交互。
 ```
 
