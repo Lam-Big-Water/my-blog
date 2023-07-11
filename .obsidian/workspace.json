@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "0749ddecdc6ec13a",
@@ -147,8 +146,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "fc3e415f17b1533e",
+  "active": "84906f7b81d3b24d",
   "lastOpenFiles": [
+    "source/_posts/E-Books",
     "Untitled 2.canvas",
     "Untitled 1.canvas",
     "source/_posts/The_Road_To_React.md",
