@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "0749ddecdc6ec13a",
@@ -148,12 +149,13 @@
   },
   "active": "fc3e415f17b1533e",
   "lastOpenFiles": [
-    "source/_posts/E-Books/The Road To React.md",
-    "source/_posts/The_Road_To_React.md",
-    "source/_posts/E-Books",
-    "Untitled 2.canvas",
-    "Untitled 1.canvas",
+    "README.md",
     "Untitled.canvas",
+    "Untitled 1.canvas",
+    "Untitled 2.canvas",
+    "source/_posts/The_Road_To_React.md",
+    "source/_posts/E-Books/The Road To React.md",
+    "source/_posts/E-Books",
     "source/_posts/The Road To Reac.md"
   ]
 }
