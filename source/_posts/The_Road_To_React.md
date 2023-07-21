@@ -80,3 +80,8 @@ npm --version
 
 - **Read more about [yarn](https://yarnpkg.com/) and [pnpm](https://pnpm.io/). Both can be used as replacement for npm. However, I do not recommend using them as a beginner. This exercise should only make sure that you know about your options.**
 了解有关 [yarn](https://yarnpkg.com/) 和 [pnpm](https://pnpm.io/) 的更多信息。 两者都可以用作 npm 的替代品。 但是，我不建议初学者使用它们。 此练习仅应确保您了解自己的选择。
+
+---
+---
+
+## Setup
