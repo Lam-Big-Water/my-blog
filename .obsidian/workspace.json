@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "c48dab1c613fb24a",
+        "id": "b363ebcba0674fc2",
         "type": "tabs",
         "children": [
           {
-            "id": "4bdb3a3c780e6834",
+            "id": "f58fff3205198ee0",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "source/_posts/The_Road_To_React.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -82,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "source/_posts/The_Road_To_React.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,6 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "source/_posts/The_Road_To_React.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -119,7 +125,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "source/_posts/The_Road_To_React.md"
+              }
             }
           }
         ]
@@ -139,10 +147,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4bdb3a3c780e6834",
+  "active": "f58fff3205198ee0",
   "lastOpenFiles": [
-    "source/_posts/The_Road_To_React.md",
+    "source/_posts/BUG-Summary.md",
     "source/_posts/ES6+.md",
+    "source/_posts/git-tutorial.md",
+    "source/_posts/The_Road_To_React.md",
     "README.md",
     "Untitled.canvas",
     "Untitled 1.canvas",

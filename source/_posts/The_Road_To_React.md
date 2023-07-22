@@ -85,3 +85,158 @@ npm --version
 ---
 
 ## Setup
+
+###  Setting up a React Project
+
+**In the Road to React, we'll use [Vite](https://bit.ly/3BsG1TH) to set up our React application. Vite, a french word which translates to "quick", is a modern build tool for status quo web frameworks (e.g. React) which comes with sensible defaults (read: configuration) while staying highly extensible for specific use cases (e.g. SVG support, Lint support, TypeScript) later on. The essential core of Vite is a development server, which allows you to start your React application on your local machine (read: development environment), and a bundler, which outputs highly optimized files for a production-ready deployment (read: production environment). What matters for a React beginner here: getting started with React by just learning React while not getting distracted by any tooling around it. Therefore Vite is the perfect partner for learning React.**
+在 React 之路中，我们将使用 Vite 来设置 React 应用程序。 Vite 是一个法语单词，翻译为“快速”，是一种用于现状 Web 框架（例如 React）的现代构建工具，它具有合理的默认值（读：配置），同时保持稍后针对特定用例（例如 SVG 支持、Lint 支持、TypeScript）的高度可扩展性。 Vite 的基本核心是一个开发服务器，它允许您在本地计算机上启动 React 应用程序（阅读：开发环境），以及一个捆绑器，它输出高度优化的文件以进行生产就绪部署（阅读：生产环境）。 对于 React 初学者来说重要的是：通过学习 React 来开始使用 React，而不是被任何周围的工具分散注意力。 因此Vite是学习React的最佳伙伴。
+
+**There are two ways to create your project with Vite. First, choosing an [online template](https://bit.ly/3RPAZWz), either React (recommended for this book) or React TypeScript (advanced, which means you implement the types for TypeScript yourself) for working on your project online without a local setup. Second, which is the way I would recommend, is creating a React project with Vite on your local machine for working on it in your local IDE/editor (e.g. VSCode).**
+使用 Vite 创建项目有两种方法。 首先，选择一个在线模板，React（本书推荐）或 React TypeScript（高级，这意味着您自己实现 TypeScript 的类型），以便在线处理您的项目，而无需本地设置。 其次，我推荐的方法是在本地计算机上使用 Vite 创建一个 React 项目，以便在本地 IDE/编辑器（例如 VSCode）中处理它。
+
+**Since the online template works out of the box, we will focus on the setup for your local machine in this section (recommended). In a previous section, you have installed Node and npm. The latter enables you to install third-party dependencies (read: libraries/frameworks/etc.) from the command line. So open up your command line tool and move to a folder where you want to create your React project. As a crash course for navigating on the command line:**
+由于在线模板开箱即用，因此我们将在本节中重点关注本地计算机的设置（推荐）。 在上一节中，您已经安装了 Node 和 npm。 后者使您能够从命令行安装第三方依赖项（阅读：库/框架/等）。 因此，打开命令行工具并移动到要在其中创建 React 项目的文件夹。 作为在命令行上导航的速成课程：
+
+- use `pwd` (Windows: `cd`) to display the current folder
+- use `ls` (Windows: `dir`) to display all folders and files in the current folder
+- use `mkdir <folder_name>` to create a folder
+- use `cd <folder_name>` to move into a folder
+- use `cd ..` to move outside of a folder
+
+**After navigating into a folder where you want to create your React project, type the following command. We'll refer to this project as hacker-stories, but you may choose any project name you like:**
+导航到要在其中创建 React 项目的文件夹后，键入以下命令。 我们将此项目称为 hacker-stories，但您可以选择您喜欢的任何项目名称：
+
+```shell
+npm create vite@latest hacker-stories -- --template react
+```
+
+**Optionally you can also go with a React + TypeScript project if you feel confident (check Vite's installation website to follow their instructions for a React + TypeScript project). The book comes with a TypeScript section later on, however, it will not do any hand-holding throughout the sections for transforming JavaScript into TypeScript. Next, follow the instructions given on the command line for navigating into the folder, installing all the third-party dependencies of the project, and running it locally on your machine:**
+如果您有信心，您也可以选择使用 React + TypeScript 项目（查看 Vite 的安装网站以按照其关于 React + TypeScript 项目的说明进行操作）。 本书稍后附带了 TypeScript 部分，但是，它不会在整个部分中提供将 JavaScript 转换为 TypeScript 的任何指导。 接下来，按照命令行上给出的说明导航到该文件夹，安装项目的所有第三方依赖项，并在您的计算机上本地运行它：
+
+```shell
+cd hacker-stories
+npm install
+npm run dev
+```
+
+**The command line should output a URL where you can find your project running in the browser. Open up the browser with the given URL and verify that you can see the React project running there. We will continue developing this project in the next sections, however, for the rest of this section, we will go through explaining the project structure and the scripts (e.g. `npm run dev`).**
+命令行应该输出一个 URL，您可以在其中找到在浏览器中运行的项目。 使用给定的 URL 打开浏览器并验证您是否可以看到正在运行的 React 项目。 我们将在接下来的部分中继续开发该项目，但是，在本节的其余部分中，我们将解释项目结构和脚本（例如 npm run dev）。
+
+### Project Structure
+
+**First, let's open the application in an editor/IDE. For VSCode, you can simply type `code .` on the command line. The following folder structure, or a variation of it depending on the Vite version, should be presented:**
+首先，让我们在编辑器/IDE 中打开应用程序。 对于 VSCode，您只需键入 code 即可。 在命令行上。 应显示以下文件夹结构或根据 Vite 版本而变化的文件夹结构：
+
+```shell
+hacker-stories/
+--node_modules/
+--public/
+----vite.svg
+--src/
+----assets/
+------react.svg
+----App.css
+----App.jsx
+----index.css
+----main.jsx
+--.gitignore
+--index.html
+--package-lock.json
+--package.json
+--vite.config.js
+```
+
+**This is a breakdown of the most important folders and files:**
+这是最重要的文件夹和文件的细分：
+
+- package.json: This file shows you a list of all third-party dependencies (read: node packages which are located in the node_modules/ folder) and other essential project configurations related to Node/npm.
+- package-lock.json: This file indicates npm how to break down (read: resolve) all node package versions and their internal third-party dependencies. We'll not touch this file.
+- node_modules/: This folder contains all node packages that have been installed. Since we used Vite to create our React application, there are various node modules (e.g. React) already installed for us. We'll not touch this folder.
+- .gitignore: This file indicates all folders and files that shouldn't be added to your git repository when using git, as such files and folders should be located only on your local machine. The node_modules/ folder is one example. It is enough to share the package.json and package-lock.json files with other developers in the team, so they can install dependencies on their end with `npm install` without having to share the entire node_modules/ folder with everybody.
+- vite.config.js: A file to configure Vite. If you open it, you should see Vite's React plugin showing up there. If you would be running Vite with another web framework, the other framework's Vite plugin would show up. In the end, there are many more things that can optionally be set up here.
+- public/: This folder holds static assets for the project like a [favicon](https://bit.ly/3QvRupG) which is used for the browser tab's thumbnail when starting the development server or building the project for production.
+- index.html: The HTML that is displayed in the browser when starting the project. If you open it, you shouldn't see much content though. However, you should see a script tag which links to your source folder where all the React code is located to output HTML/CSS in the browser.
+
+● package.json：此文件显示所有第三方依赖项的列表（读取：位于node_modules/文件夹中的节点包）以及与Node/npm相关的其他基本项目配置。
+
+● package-lock.json：该文件指示npm 如何分解（读：解析）所有节点包版本及其内部第三方依赖项。 我们不会碰这个文件。
+
+● node_modules/：该文件夹包含所有已安装的节点包。 由于我们使用 Vite 创建 React 应用程序，因此已经为我们安装了各种节点模块（例如 React）。 我们不会碰这个文件夹。
+
+● .gitignore：此文件指示使用git 时不应添加到git 存储库中的所有文件夹和文件，因为此类文件和文件夹应仅位于本地计算机上。 node_modules/ 文件夹就是一个例子。 与团队中的其他开发人员共享 package.json 和 package-lock.json 文件就足够了，因此他们可以使用 npm install 在自己的一端安装依赖项，而不必与每个人共享整个 node_modules/ 文件夹。
+
+● vite.config.js：配置Vite的文件。 如果你打开它，你应该会看到 Vite 的 React 插件出现在那里。 如果您要与另一个 Web 框架一起运行 Vite，则会显示另一个框架的 Vite 插件。 最后，还有很多东西可以选择在这里设置。
+
+● public/：此文件夹保存项目的静态资源，例如启动开发服务器或构建生产项目时用于浏览器选项卡缩略图的图标。
+
+● index.html：启动项目时在浏览器中显示的HTML。 如果你打开它，你不应该看到太多内容。 但是，您应该看到一个脚本标记，它链接到所有 React 代码所在的源文件夹，以便在浏览器中输出 HTML/CSS。
+
+**In the beginning, everything you need is located in the src/ folder. The main focus lies on the src/App.jsx file which is used to implement React components. It will be used to implement your application, but later you might want to split up your React components into multiple files, where each file maintains one or more components on its own. We will arrive at this point eventually.**
+一开始，您需要的所有内容都位于 src/ 文件夹中。 主要焦点在于 src/App.jsx 文件，该文件用于实现 React 组件。 它将用于实现您的应用程序，但稍后您可能希望将 React 组件拆分为多个文件，其中每个文件都单独维护一个或多个组件。 我们最终会到达这一点。
+
+**Additionally, you will find a src/main.jsx as an entry point to the React world. You will get to know this file intimately in later sections. There is also a src/index.css and a src/App.css file to style your overall application and components, which comes with the default style when you open them. You will modify them later as well.**
+此外，您会发现 src/main.jsx 作为 React 世界的入口点。 您将在后面的部分中深入了解该文件。 还有一个 src/index.css 和 src/App.css 文件用于设置整个应用程序和组件的样式，当您打开它们时，它们带有默认样式。 您稍后也将修改它们。
+
+
+### npm Scripts
+
+**After you have learned about the folder and file structure of your React project, let's go through the available commands. All your project-specific commands can be found in your package.json file under the `scripts` property. They may look similar to these depending on your Vite version:**
+了解 React 项目的文件夹和文件结构后，让我们浏览一下可用的命令。 所有特定于项目的命令都可以在 script 属性下的 package.json 文件中找到。 根据您的 Vite 版本，它们可能看起来与以下类似：
+
+```json
+{
+  ...
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  ...
+}
+```
+
+**These scripts are executed with the `npm run <script>` command in an IDE-integrated terminal or your standalone command line tool. The commands are as follows:**
+这些脚本是在 IDE 集成终端或独立命令行工具中使用 npm run `<script>` 命令执行的。 命令如下：
+
+```shell
+# Runs the application locally for the browser
+npm run dev
+
+# Builds the application for production
+npm run build
+```
+
+**Another command from the previous npm scripts called `preview` can be used to run the production-ready build on your local machine for testing purposes. In order to make it work, you have to execute `npm run build` before running `npm run preview`. Essentially `npm run dev` and `npm run preview` (after `npm run build`) should give the identical output in the browser. However, the former is not optimized by a build for production and should exclusively be used for the local development of the application.**
+先前 npm 脚本中的另一个命令（称为预览）可用于在本地计算机上运行生产就绪版本以进行测试。 为了使其工作，您必须在运行 npm run Preview 之前执行 npm run build。 本质上， npm run dev 和 npm run Preview （在 npm run build 之后）应该在浏览器中给出相同的输出。 但是，前者并未通过生产构建进行优化，并且应专门用于应用程序的本地开发。
+
+### Exercises:
+
+- Read more about [Vite](https://bit.ly/3BsG1TH).
+- Exercise npm scripts:
+
+- Start your React application with `npm run dev` on the command line and check it out in the browser.
+
+- Exit the command on the command line by pressing `Control + C`.
+
+- Run the `npm run build` script and verify that a dist/ folder was added to your project. Note that the build folder can be used later on to [deploy your application](https://www.robinwieruch.de/deploy-applications-digital-ocean/). Afterward, run `npm run preview` to see the production-ready application in the browser.
+
+- Every time we change something in our source code throughout the coming sections, make sure to check the output in your browser for getting visual feedback. Use `npm run dev` to keep your application running.
+- Optional: If you use git and GitHub, add and commit your changes after every section of the book.
+- Optional: [Leave feedback for this section](https://forms.gle/bvH2jcppsSA6p9i16).
+
+● 了解更多有关Vite 的信息。
+
+● 练习npm 脚本：
+
+○ 在命令行上使用 npm run dev 启动 React 应用程序，然后在浏览器中查看它。
+
+■ 按 Control + C 退出命令行上的命令。
+
+○ 运行 npm run build 脚本并验证 dist/ 文件夹是否已添加到您的项目中。 请注意，稍后可以使用构建文件夹来部署您的应用程序。 然后，运行 npm run Preview 以在浏览器中查看生产就绪的应用程序。
+
+● 在接下来的部分中，每当我们更改源代码中的某些内容时，请务必检查浏览器中的输出以获得视觉反馈。 使用 npm run dev 来保持应用程序运行。
+
+● 可选：如果您使用git 和GitHub，请在本书的每个部分之后添加并提交更改。
+
+● 可选：留下对此部分的反馈。
