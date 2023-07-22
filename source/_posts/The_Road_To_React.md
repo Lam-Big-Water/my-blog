@@ -240,3 +240,176 @@ npm run build
 ● 可选：如果您使用git 和GitHub，请在本书的每个部分之后添加并提交更改。
 
 ● 可选：留下对此部分的反馈。
+
+---
+---
+
+## Meet the React Component
+
+**Every React application is built on the foundation of React components. In this section, you will get to know your first React component which is located in the src/App.jsx file and which should look similar to the example below. Depending on your Vite version, the content of the file might differ slightly:**
+每个 React 应用程序都构建在 React 组件的基础上。 在本节中，您将了解您的第一个 React 组件，该组件位于 src/App.jsx 文件中，并且应该类似于下面的示例。 根据您的 Vite 版本，文件内容可能略有不同：
+
+```jsx
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import './App.css';
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div className="App">
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src="/vite.svg" className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://reactjs.org" target="_blank">
+          <img
+            src={reactLogo}
+            className="logo react"
+            alt="React logo"
+          />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+**This file will be our focus throughout this book, unless otherwise specified. Even though this file will grow in size, because we are not splitting it up from the beginning into multiple files, it will be simpler to understand as a beginner, because everything is at one place. Once you get more comfortable with React, I will show you how to split your React project into multiple files.**
+除非另有说明，该文件将是本书的重点。 尽管这个文件的大小会增加，但因为我们没有从一开始就把它分成多个文件，所以作为初学者会更容易理解，因为一切都在一个地方。 一旦您对 React 更加熟悉，我将向您展示如何将 React 项目拆分为多个文件。
+
+**Let's start by reducing the component to a more lightweight version for getting you started without too much distracting [boilerplate code](https://bit.ly/3lZzckS):**
+让我们首先将组件减少为更轻量级的版本，以便在没有太多分散注意力的样板代码的情况下开始:
+
+```jsx
+# leanpub-start-insert
+import * as React from 'react';
+
+function App() {
+  return (
+    <div>
+      <h1>Hello React</h1>
+    </div>
+  );
+}
+
+export default App;
+# leanpub-end-insert
+```
+
+**Optionally you can also make the src/index.css and src/App.css files blank for starting from a clean slate style-wise.**
+或者，您还可以将 src/index.css 和 src/App.css 文件设为空白，以便从干净的样式开始。
+
+**Next, start your application with `npm run dev` on the command line and check what's displayed in the browser. You should see the headline "Hello React" showing up. Before we dive deeper into each topic, here comes a quick overview of what's in your code and what we will cover more in-depth in the following sections:**
+接下来，在命令行上使用 npm run dev 启动应用程序并检查浏览器中显示的内容。 您应该会看到标题“Hello React”出现。 在我们深入研究每个主题之前，先快速概述一下您的代码中的内容以及我们将在以下部分中更深入介绍的内容：
+
+- First, this React component, specifically called App component, is just a JavaScript function. In contrast to traditional JavaScript functions, it's defined in [PascalCase](https://www.robinwieruch.de/javascript-naming-conventions/). A component has to start with a capital letter, otherwise it isn't treated as component in React. The kind of the App component is commonly called a function component. Function components are the modern way of using components in React, however, be aware that there are other variations of React components (see component types in a later section) too.
+- Second, the App component doesn't have any parameters in its function signature yet. In the upcoming sections, you will learn how to pass information (see props in a later section) from one component to another component. These props will be accessible via the function's signature as parameters then.
+- And third, the App component returns code that resembles HTML. You will see how this new syntax (see JSX in a later section), allows you to combine JavaScript and HTML for displaying highly dynamic and interactive content in a browser.
+
+● 首先，这个React 组件，具体称为App 组件，只是一个JavaScript 函数。 与传统的 JavaScript 函数相比，它是用 PascalCase 定义的。 组件必须以大写字母开头，否则在 React 中它不会被视为组件。 App组件的种类通常称为功能组件。 函数组件是在 React 中使用组件的现代方式，但是，请注意 React 组件还有其他变体（请参阅后面部分中的组件类型）。
+
+● 其次，App 组件的函数签名中还没有任何参数。 在接下来的部分中，您将学习如何将信息（请参阅后面部分中的 props）从一个组件传递到另一个组件。 然后可以通过函数的签名作为参数来访问这些道具。
+
+● 第三，App 组件返回类似于HTML 的代码。 您将看到这种新语法（请参阅后面部分中的 JSX）如何允许您组合 JavaScript 和 HTML，以便在浏览器中显示高度动态和交互式的内容。
+
+**Like any other JavaScript function, a function component can have implementation details between the function signature and the return statement. You will see this in practice in action throughout your React journey:**
+与任何其他 JavaScript 函数一样，函数组件可以在函数签名和返回语句之间包含实现细节。 在整个 React 之旅中，您将在实践中看到这一点：
+
+```jsx
+import * as React from 'react';
+
+function App() {
+# leanpub-start-insert
+  // you can do something in between
+# leanpub-end-insert
+
+  return (
+    <div>
+      <h1>Hello React</h1>
+    </div>
+  );
+}
+
+export default App;
+```
+
+**Variables defined in the function's body will be re-defined each time this function runs, which shouldn't be something new if you are familiar with JavaScript and its functions:**
+每次该函数运行时，函数体内定义的变量都会被重新定义，如果您熟悉 JavaScript 及其函数，这应该不是什么新鲜事：
+
+```jsx
+import * as React from 'react';
+
+function App() {
+# leanpub-start-insert
+  const title = 'React';
+# leanpub-end-insert
+
+  return (
+    <div>
+      <h1>Hello React</h1>
+    </div>
+  );
+}
+
+export default App;
+```
+
+**The function of a component runs every time a component is displayed in the browser. This happens for the initial rendering (read: displaying) of the component, but also whenever the component updates because it has to display something different due to changes (re-rendering). We will learn more about this later too.**
+每次在浏览器中显示组件时，组件的功能都会运行。 这种情况发生在组件的初始渲染（读取：显示）时，而且每当组件更新时也会发生，因为它必须因更改而显示不同的内容（重新渲染）。 稍后我们也会了解更多相关信息。
+
+**Since we do not want to re-define a variable within a function every time this function runs, we could define this variable outside of the component as well. In this case, the `title` does not depend on any information that's within the function component (e.g. parameters coming from the function's signature), hence it's okay to move it outside. Therefore it will be defined only once and not every time the function is called:**
+由于我们不想每次运行函数时都在函数内重新定义变量，因此我们也可以在组件外部定义该变量。 在这种情况下，标题不依赖于函数组件内的任何信息（例如来自函数签名的参数），因此可以将其移到外部。 因此它只会被定义一次，而不是每次调用该函数时:
+
+```jsx
+import * as React from 'react';
+
+# leanpub-start-insert
+const title = 'React';
+# leanpub-end-insert
+
+function App() {
+  return (
+    <div>
+      <h1>Hello React</h1>
+    </div>
+  );
+}
+
+export default App;
+```
+
+**On your journey as a React developer, and in this learning experience, you will come across both scenarios: variables (and functions) defined outside and within a component. As a rule of thumb: If a variable does not need anything from within the function component's body (e.g. parameters), then define it outside of the component which avoids re-defining it on every function call.**
+在作为 React 开发人员的旅程中，以及在这次学习经历中，您将遇到两种场景：在组件外部和内部定义的变量（和函数）。 根据经验：如果变量不需要函数组件体内的任何内容（例如参数），则在组件外部定义它，这样可以避免在每次函数调用时重新定义它。
+
+### Exercises:
+
+- Compare your source code against the author's [source code](https://bit.ly/3UvoTEn).
+
+- Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3RhDTm8).
+
+- Think about ways to display the `title` variable in your App component's returned HTML. In the next section, we'll put this variable to use.
+- Optional: [Leave feedback for this section](https://forms.gle/VYiZqqjzXGE11wCv6).
+
+● 将您的源代码与作者的源代码进行比较。
+
+○ 可选：如果您使用 TypeScript，请在此处查看作者的源代码。
+
+● 考虑如何在应用程序组件返回的HTML 中显示标题变量。 在下一节中，我们将使用这个变量。
+
+● 可选：留下对此部分的反馈。
