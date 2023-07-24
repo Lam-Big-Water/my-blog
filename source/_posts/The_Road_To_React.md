@@ -413,3 +413,185 @@ export default App;
 ● 考虑如何在应用程序组件返回的HTML 中显示标题变量。 在下一节中，我们将使用这个变量。
 
 ● 可选：留下对此部分的反馈。
+
+---
+---
+
+## JSX
+
+### React JSX
+
+**Everything returned from a React component will be displayed in the browser. Until now, we only returned HTML from the App component. However, recall that I mentioned the returned output of the App component not only resembles HTML, but it can also be mixed with JavaScript. In fact, this output is called JSX (JavaScript XML), which powerfully combines HTML and JavaScript. Let's see how this works for displaying the variable from the previous section:**
+从 React 组件返回的所有内容都将显示在浏览器中。 到目前为止，我们只从 App 组件返回 HTML。 不过，请回想一下，我提到过 App 组件的返回输出不仅类似于 HTML，而且还可以与 JavaScript 混合。 事实上，这个输出称为 JSX (JavaScript XML)，它强大地结合了 HTML 和 JavaScript。 让我们看看它如何显示上一节中的变量：
+
+```jsx
+import * as React from 'react';
+
+const title = 'React';
+
+function App() {
+  return (
+    <div>
+      # leanpub-start-insert
+      <h1>Hello {title}</h1>
+      # leanpub-end-insert
+    </div>
+  );
+}
+
+export default App;
+```
+
+**Either start your application again with `npm run dev` (or check whether your application still runs) and look for the rendered (read: displayed) `title` in the browser. The output should read "Hello React". If you change the variable in the source code, the browser should reflect that change.**
+使用 npm run dev 再次启动您的应用程序（或检查您的应用程序是否仍在运行）并在浏览器中查找渲染（读取：显示）的标题。 输出应为“Hello React”。 如果您更改源代码中的变量，浏览器应该反映该更改。
+
+**Changing the variable in the source code and seeing the change reflected in the browser is not solely connected to React, but also to the underlying development server when we start our application on the command line. Any time one of our files changes, the development server notices it and reloads all affected files for the browser. The bridge between React and the development server which makes this behavior possible is called React Fast Refresh (prior to that it was React Hot Loader) on React's side and Hot Module Replacement on the development server's side.**
+更改源代码中的变量并在浏览器中看到反映的更改不仅与 React 有关，而且当我们在命令行上启动应用程序时与底层开发服务器有关。 每当我们的文件之一发生更改时，开发服务器都会注意到它并为浏览器重新加载所有受影响的文件。 React 和开发服务器之间的桥梁使得这种行为成为可能，在 React 方面称为 React Fast Refresh（之前是 React Hot Loader），在开发服务器方面称为 Hot Module Replacement。
+
+**Next, try to define a HTML input field (read: `<input>` tag) and a HTML label (read: `<label>` tag) in your JSX yourself. It should also be possible to focus the input field when clicking the label either by nesting the input field in the label or by using dedicated HTML attributes for both. The following code snippet will show you the book's implementation of this task and you may be surprised that HTML slightly differs when used in JSX:**
+接下来，尝试自己在 JSX 中定义一个 HTML 输入字段（读取：`<input>` 标记）和一个 HTML 标签（读取：`<label>` 标记）。 单击标签时还应该可以通过将输入字段嵌套在标签中或使用两者的专用 HTML 属性来聚焦输入字段。 以下代码片段将向您展示本书中此任务的实现，您可能会惊讶地发现在 JSX 中使用 HTML 时略有不同：
+
+```jsx
+import * as React from 'react';
+
+const title = 'React';
+
+function App() {
+  return (
+    <div>
+      <h1>Hello {title}</h1>
+
+      # leanpub-start-insert
+      <label htmlFor="search">Search: </label>
+      <input id="search" type="text" />
+      # leanpub-end-insert
+    </div>
+  );
+}
+
+export default App;
+```
+
+**For our input field and label combination, we specified three HTML attributes: `htmlFor`, `id`, and `type`. The `type` attribute is kinda mandatory and has nothing to do with focusing the input field when clicking the label. However, while `id` and `type` should be familiar from native HTML, `htmlFor` might be new to you.**
+对于我们的输入字段和标签组合，我们指定了三个 HTML 属性：htmlFor、id 和 type。 type 属性是强制性的，与单击标签时聚焦输入字段无关。 然而，虽然 id 和 type 在原生 HTML 中应该很熟悉，但 htmlFor 对您来说可能是陌生的。
+
+**The `htmlFor` reflects the `for` attribute in vanilla HTML. You may be wondering why this attribute differs from native HTML. JSX replaces a handful of internal HTML attributes caused by internal implementation details of React itself. However, you can find all the [supported HTML attributes](https://bit.ly/2Z42zcK) in React's documentation. Since JSX is closer to JavaScript than to HTML, React uses the [camelCase](https://bit.ly/3jljQFn) naming convention. Expect to come across more JSX-specific attributes like `className` and `onClick` instead of `class` and `onclick`, as you learn more about React.**
+htmlFor 反映了普通 HTML 中的 for 属性。 您可能想知道为什么此属性与本机 HTML 不同。 JSX 替换了由 React 本身的内部实现细节引起的一些内部 HTML 属性。 但是，您可以在 React 文档中找到所有支持的 HTML 属性。 由于 JSX 比 HTML 更接近 JavaScript，因此 React 使用驼峰命名约定。 随着您对 React 的了解越来越多，预计会遇到更多 JSX 特定的属性，例如 className 和 onClick，而不是 class 和 onclick。
+
+**When using HTML in JSX, React internally translates all HTML attributes to JavaScript where certain words such as `class` or `for` are reserved during the rendering process. Therefore React came up with replacements such as `className` and `htmlFor` for them. However, once the actual HTML is rendered for the browser, the attributes get translated back to their native variant.**
+当在 JSX 中使用 HTML 时，React 会在内部将所有 HTML 属性转换为 JavaScript，其中在渲染过程中会保留某些单词（例如 class 或 for）。 因此 React 为它们想出了 className 和 htmlFor 等替代品。 然而，一旦为浏览器呈现了实际的 HTML，属性就会被转换回其本机变体。
+
+**We will revisit the HTML input field and its label for further implementation details with JavaScript later. For now, in order to contrast how HTML and JavaScript are used in JSX, let's use more complex JavaScript data types in JSX. Instead of defining a JavaScript string primitive like `title`, define a JavaScript object called `welcome` which has a `title` (e.g. `'React'`) and a `greeting` (e.g. `'Hey'`) as properties. Afterward, try yourself to render both properties of the object in JSX side by side in the `<h1>` tag.**
+稍后我们将重新审视 HTML 输入字段及其标签，以了解 JavaScript 的进一步实现细节。 现在，为了对比 HTML 和 JavaScript 在 JSX 中的使用方式，让我们在 JSX 中使用更复杂的 JavaScript 数据类型。 不要定义像标题这样的 JavaScript 字符串基元，而是定义一个名为welcome 的 JavaScript 对象，它具有标题（例如“React”）和问候语（例如“Hey”）作为属性。 然后，尝试在 `<h1>` 标记中并排渲染 JSX 中对象的两个属性。
+
+**The following code snippet will show you the solution to the task. Before we have defined a JavaScript string primitive to be displayed in the App component. Now, the same can be done with a JavaScript object by accessing its properties within JSX:**
+以下代码片段将向您展示该任务的解决方案。 在我们定义了要在 App 组件中显示的 JavaScript 字符串原语之前。 现在，可以通过在 JSX 中访问 JavaScript 对象的属性来完成同样的操作：
+
+```jsx
+import * as React from 'react';
+
+# leanpub-start-insert
+const welcome = {
+  greeting: 'Hey',
+  title: 'React',
+};
+# leanpub-end-insert
+
+function App() {
+  return (
+    <div>
+      <h1>
+        # leanpub-start-insert
+        {welcome.greeting} {welcome.title}
+        # leanpub-end-insert
+      </h1>
+
+      <label htmlFor="search">Search: </label>
+      <input id="search" type="text" />
+    </div>
+  );
+}
+
+export default App;
+```
+
+**While HTML can be used almost (except for the attributes) in its native way in JSX, everything in curly braces can be used to interpolate JavaScript in it. For example, you could define a function that returns the title and execute it within the curly braces:**
+虽然 HTML 几乎可以在 JSX 中以其本机方式使用（属性除外），但大括号中的所有内容都可以用于在其中插入 JavaScript。 例如，您可以定义一个返回标题的函数并在大括号内执行它：
+
+```jsx
+import * as React from 'react';
+
+# leanpub-start-insert
+function getTitle(title) {
+  return title;
+}
+# leanpub-end-insert
+
+function App() {
+  return (
+    <div>
+      # leanpub-start-insert
+      <h1>Hello {getTitle('React')}</h1>
+      # leanpub-end-insert
+
+      <label htmlFor="search">Search: </label>
+      <input id="search" type="text" />
+    </div>
+  );
+}
+
+export default App;
+```
+
+**JSX is a syntax extension to JavaScript. In the past, JavaScript files which made use of JSX [had to use](https://github.com/airbnb/javascript/pull/985) the .jsx instead of the .js extension. However, these days the underlying build tools (read: compiler/bundler) [can be configured to acknowledge JSX in a .js file](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/). If they are configured this way, they will transpile JSX to JavaScript. Tools like Vite embrace the .jsx extension though, because it makes it more explicit for developers.**
+JSX 是 JavaScript 的语法扩展。 过去，使用 JSX 的 JavaScript 文件必须使用 .jsx 而不是 .js 扩展名。 然而，如今底层构建工具（阅读：编译器/捆绑器）可以配置为在 .js 文件中确认 JSX。 如果以这种方式配置，它们会将 JSX 转换为 JavaScript。 不过，像 Vite 这样的工具都支持 .jsx 扩展名，因为它对开发人员来说更加明确。
+
+```jsx
+const title = 'React';
+
+// JSX ...
+const myElement = <h1>Hello {title}</h1>;
+
+// ... gets transpiled to JavaScript
+const myElement = React.createElement('h1', null, `Hello ${title}`);
+
+// ... gets rendered as HTML by React
+<h1>Hello React</h1>
+```
+
+**JSX enables developers to express what should be rendered by mixing up HTML with JavaScript. Whereas the previous way of thinking was to decouple markup (read: HTML) from logic (read: JavaScript), React puts all of it together as one unit in a React component. As you can see from the last code snippet, React does not require you to use JSX at all, instead it's possible to use methods like `createElement()`. However, most people find it more intuitive to use JSX for its declarative nature instead of using JavaScript methods (here: methods offered by React) which only allow one to express the UI imperatively.**
+JSX 使开发人员能够通过混合 HTML 和 JavaScript 来表达应该呈现的内容。 以前的思维方式是将标记（阅读：HTML）与逻辑（阅读：JavaScript）分离，而 React 将所有这些作为一个单元放在 React 组件中。 正如您从最后一个代码片段中看到的，React 根本不需要您使用 JSX，而是可以使用像 createElement() 这样的方法。 然而，大多数人发现使用 JSX 的声明性性质比使用 JavaScript 方法（此处：React 提供的方法）更直观，因为 JavaScript 方法只允许命令式地表达 UI。
+
+**Initially invented for React, JSX gained popularity in other modern libraries and frameworks as well. These days, it's not strictly coupled to React, but people are usually connecting it to React. Anyway, [JSX is one of my favorite things when being asked about React](https://bit.ly/3aZbdM0). Without any extra templating syntax (except for the curly braces), we are able to use JavaScript in HTML. Every JavaScript data structure, from primitive to complex, can be used within HTML with the help of JSX.**
+JSX 最初是为 React 发明的，后来在其他现代库和框架中也广受欢迎。 如今，它并没有与 React 严格耦合，但人们通常将它与 React 连接起来。 不管怎样，当被问及 React 时，JSX 是我最喜欢的东西之一。 无需任何额外的模板语法（大括号除外），我们就可以在 HTML 中使用 JavaScript。 每个 JavaScript 数据结构，从原始到复杂，都可以在 JSX 的帮助下在 HTML 中使用。
+
+### Exercise:
+
+- Compare your source code against the author's [source code](https://bit.ly/3S2uyQy).
+
+- Recap all the [source code changes from this section](https://bit.ly/3dAr0G3).
+- Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3LJx1Nu).
+
+- Beginner: Read more about [JavaScript Variables](https://www.robinwieruch.de/javascript-variable/).
+
+- Beginner: Define more primitive and complex JavaScript data types and render them in JSX.
+- Advanced: Try to render a JavaScript array in JSX by using the array's built-in `map()` method to return JSX for each item in the list. If it's too complicated, don't worry, because you will learn more about this in the next section.
+
+- Optional: Read more about [React's JSX](https://bit.ly/3BZSkVk).
+- Optional: [Leave feedback for this section](https://forms.gle/R6y6kEqGPACLrXmP8).
+
+● 将您的源代码与作者的源代码进行比较。
+
+○ 回顾本节中的所有源代码更改。
+
+○ 可选：如果您使用 TypeScript，请在此处查看作者的源代码。
+
+● 初学者：阅读有关 JavaScript 变量的更多信息。
+
+○ 初学者：定义更原始和复杂的 JavaScript 数据类型并在 JSX 中呈现它们。
+
+○ 高级：尝试在 JSX 中渲染 JavaScript 数组，方法是使用数组的内置 map() 方法为列表中的每个项目返回 JSX。 如果它太复杂，请不要担心，因为您将在下一节中了解更多信息。
+
+● 可选：阅读有关React 的JSX 的更多信息。
+
+● 可选：留下对此部分的反馈。
