@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "cc7dadb10fd38093",
+        "id": "3b56d2d7a7e714a3",
         "type": "tabs",
         "children": [
           {
-            "id": "540213537c639716",
+            "id": "7014193606f1c76d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "source/_posts/The_Road_To_React.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -86,7 +82,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "source/_posts/The_Road_To_React.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +98,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "source/_posts/The_Road_To_React.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,9 +119,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "source/_posts/The_Road_To_React.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -147,17 +139,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "540213537c639716",
+  "active": "7014193606f1c76d",
   "lastOpenFiles": [
     "source/_posts/The_Road_To_React.md",
-    "source/_posts/BUG-Summary.md",
-    "source/_posts/ES6+.md",
+    "source/_posts/Jonas_JS_Course_Challenge.md",
+    "source/_posts/Lazy-Loading.md",
     "source/_posts/git-tutorial.md",
+    "source/_posts/ES6+.md",
+    "source/_posts/BUG-Summary.md",
+    "source/_posts/E-Books/The Road To React.md",
     "README.md",
     "Untitled.canvas",
     "Untitled 1.canvas",
     "Untitled 2.canvas",
-    "source/_posts/E-Books/The Road To React.md",
     "source/_posts/E-Books",
     "source/_posts/The Road To Reac.md"
   ]
